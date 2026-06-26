@@ -2,9 +2,34 @@ import "../assets/css/index.css";
 
 import { toast } from "./toast/toast.js";
 import { BASE_URL, getData, postData } from "./common/fetchFunc.js";
+import { modal } from "./modal/modal.js";
+
+const mdMap = {
+  toast: {
+    title: "Custom Toast",
+    url: "/docs/toast.md"
+  },
+
+  progress: {
+    title: "Progress Toast",
+    url: "/docs/progress.md"
+  },
+
+  excel: {
+    title: "Excel",
+    url: "/docs/excel.md"
+  }
+};
 
 document.addEventListener("DOMContentLoaded", async () => {
+
   document.getElementById("btn-toast")?.addEventListener("click", async () => {
+    toast.success("성공 상태를 표출하기 위한 toast입니다.");
+    toast.error("경고, 실패 등을 표출하기 위한 toast입니다.");
+    toast.info("상태를 표출하기 위한 toast입니다.");
+  });
+
+  document.getElementById("btn-sse")?.addEventListener("click", async () => {
     const toastId = toast.progress("대기중...");
     toast.setProgressColor(
       toastId,
@@ -55,5 +80,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     await postData(`progress/test/${jobId}`);
+  });
+
+  // md modal open
+  document.querySelectorAll(".card-button.md").forEach(button => {
+    button.addEventListener("click", () => {
+      const key = button.dataset.md;
+      const info = mdMap[key];
+      
+      if (!info) return;
+      modal.openMarkdown({
+        title: info.title,
+        url: info.url
+      });
+    });
   });
 });

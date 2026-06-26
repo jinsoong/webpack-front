@@ -1,13 +1,60 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
   <meta charset="UTF-8" />
-  <title>My Front</title>
+  <title>Webpack Front</title>
 </head>
 
 <body>
-  <h1>다양하게 테스트해봐요.</h1>
-  <button id="btn-toast">토스트 생성</button>
+  <main class="dashboard">
+    <header class="dashboard-header">
+      <div>
+        <h1>Webpack Front</h1>
+        <p>프론트엔드 공통 기능 테스트 대시보드</p>
+      </div>
+    </header>
+
+    <section class="dashboard-grid">
+      <article class="dashboard-card">
+        <div class="card-icon">💬</div>
+
+        <div class="card-content">
+          <span class="card-badge">Topic 01</span>
+          <h2>Custom Toast</h2>
+          <p>Bootstrap 없이 만든 Toast / Progress Toast 기능을 테스트합니다.</p>
+        </div>
+
+        <div class="card-actions">
+          <button id="btn-toast" type="button" class="card-button">
+            토스트 생성
+          </button>
+
+          <button type="button" data-md="toast" class="card-button md">
+            MD 파일 열기
+          </button>
+        </div>
+      </article>
+
+      <article class="dashboard-card">
+        <div class="card-icon">📡</div>
+
+        <div class="card-content">
+          <span class="card-badge">Topic 02</span>
+          <h2>SSE Progress</h2>
+          <p>Spring Boot SseEmitter와 연동하여 작업 진행률을 실시간으로 표시합니다.</p>
+        </div>
+
+        <div class="card-actions">
+          <button id="btn-sse" type="button" class="card-button">
+            테스트 시작
+          </button>
+
+          <button type="button" data-md="progress" class="card-button md">
+            MD 파일 열기
+          </button>
+        </div>
+      </article>
+    </section>
+  </main>
 </body>
 </html>

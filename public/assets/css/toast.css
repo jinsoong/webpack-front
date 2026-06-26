@@ -327,3 +327,9 @@
     background-position: 14px 0;
   }
 }
+
+[data-toast-message] {
+  color: #111827 !important;
+  position: relative;
+  z-index: 2;
+}
